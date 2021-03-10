@@ -70,11 +70,11 @@ O prazo para entrega é 22/03/2021 às 23:59.
             Forma de avaliação
             Este projeto contará como 7 pontos da primeira unidade. A forma de avaliação será:
 
-Cada requisito satisfeito valerá 0,5 pontos
-Cada um dos conceitos abaixo aplicado corretamente valerá 0,5 pontos:
-Organização em pacotes e encapsulamento adequado
-Equals e Hashcode implementados corretamente
-Uso do toString()
-Uso adequado das coleções
-Aplicação da herança
-Aplicação do polimorfismo
+* Cada requisito satisfeito valerá 0,5 pontos
+* Cada um dos conceitos abaixo aplicado corretamente valerá 0,5 pontos:
+    - Organização em pacotes e encapsulamento adequado
+    - Equals e Hashcode implementados corretamente
+    - Uso do toString()
+    - Uso adequado das coleções
+    - Aplicação da herança
+    - Aplicação do polimorfismo
