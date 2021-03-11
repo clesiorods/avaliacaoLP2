@@ -53,8 +53,10 @@ O prazo para entrega é 22/03/2021 às 23:59.
     codigo
     nome
     precoUnitario
-    Requisitos:
-    Não podem existir dois compradores com o mesmo CPF, Não podem existir dois vendedores com o mesmo CNPJ, Não podem existir dois produtos com o mesmo código
+
+
+# Requisitos:
+Não podem existir dois compradores com o mesmo CPF, Não podem existir dois vendedores com o mesmo CNPJ, Não podem existir dois produtos com o mesmo código
 
     -O sistema deve permitir cadastrar compradores informando o saldo inicial de sua conta
     -O sistema deve permitir cadastrar vendedores
