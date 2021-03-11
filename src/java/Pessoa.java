@@ -3,6 +3,7 @@ public class Pessoa {
     float saldo = 0;
     float valorFuturo = 0;
 
+
     // Métodos de get e set do atributo nome
     public void setNome(String nome) {
         this.nome = nome;

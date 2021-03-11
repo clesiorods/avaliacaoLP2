@@ -2,6 +2,13 @@ public class Comprador extends Pessoa{
     String cpf = "Nao informado";
     int compras = 0;
 
+    // Método construtor
+    public Comprador(String nome, String cpf, float saldo) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.saldo = saldo;
+    }
+
     // Métodos de get e set do atributo cpf
     public void setCpf(String cpf) {
         this.cpf = cpf;
