@@ -18,9 +18,15 @@ public class Vendedor extends Pessoa{
 
     // Método de adição de produtos
     public void addProduto(Produto produto) {
-
+        this.produtos.add(produto);
     }
 
+    // Método de listagem de produtos
+    public void listaProdutos(Produto novo) {
+        for (Produto produto : produtos) {
+            System.out.println(" > Cod. " + produto.getCodigo() + "\t" + produto.getNome());
+        }
+    }
 
     // Métodos de get e set do atributo cnpj
     public void setCnpj(String cnpj) {
