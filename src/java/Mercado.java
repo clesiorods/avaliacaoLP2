@@ -42,17 +42,24 @@ public class Mercado {
         }
     }
 
+    // Método de listagem em de produtos
+    public void listaProdutos() {
+        for (Vendedor vendedor : vendedores) {
+            vendedor.listaProdutos();
+        }
+    }
+
     // Método que imprime o cabecalho na tela
-    public static void cabecalho() {
+    public void cabecalho() {
         System.out.print("\033[H\033[2J");  
         System.out.flush(); 
-        System.out.println("\n ============== MERCADO CENTRAL ==============\n");
+        System.out.println("\n ================== MERCADO CENTRAL ==================\n");
     }
 
 
     // Método inicial para definir se um usuário irá interagir como comprador ou como vendedor
     public void menuPrincipal() {
-        System.out.print(" Ola, seja bem-vindo ao mercado central. Aqui voce pode comprar e vender produtos de qualquer tipo. Voce eh: \n\n - Comprador(c)\n - Vendedor(v)\n\n --> ");
+        System.out.print(" Ola, seja bem-vindo ao mercado central. Aqui voce pode\n comprar e vender produtos de qualquer tipo. Voce veio: \n\n - Comprar(c)\n - Vender(v)\n\n --> ");
 
         while(true) {
             Scanner teclado = new Scanner(System.in);
@@ -74,10 +81,49 @@ public class Mercado {
         }
     }
 
+    // Método para realização de compras
+    public void comprar(Comprador c) {
+        this.listaProdutos();
+
+        System.out.print("\n - Informe o codigo do produto (XXX): ");
+
+        Scanner teclado = new Scanner(System.in);
+        String codigo = teclado.next();
+
+        for (Vendedor vendedor : vendedores) {
+            for (Produto produto : vendedor.getProdutos()) {
+                
+                System.out.println(codigo + " == " + produto.getCodigo());
+                if(codigo == produto.getCodigo()) {
+
+                    // Verificação de quantidade de produtos
+                    System.out.print(" - Quantos " + produto.getNome() + " deseja comprar? ");
+                    int quant = teclado.nextInt();
+
+                    // Verificação da forma de pagamento
+                    System.out.print(" > PIX ...(1)\n > Credito ...(2)\n > Debito ...(3)\n > Boleto ...(4)\n\n => ");
+                    int form = teclado.nextInt();
+
+                    this.transacao(c, vendedor, produto, quant, form);
+                    break;
+                }
+            }
+        }
+        //this.cabecalho();
+        System.out.println(" - Codigo invalido. Tente novamente!");
+        this.comprar(c);
+    }
+
+    // Método que realiza as transações 
+    public void transacao(Comprador c, Vendedor v, Produto p, int q, int f){
+        this.cabecalho();
+        System.out.print("Transacao");
+    }
+
     // Metodo opções do comprador 
     public void opcoesComprador() {
         cabecalho();
-        System.out.println(" Certo, mas antes de fazer suas compras, informe: \n Quem voce eh?\n");
+        System.out.println(" Certo, mas antes de fazer suas compras, informe: \n Qual o seu nome?\n");
 
         listaComprador();
 
@@ -88,7 +134,9 @@ public class Mercado {
 
 
         cabecalho();
-        System.out.println(" Bem " + compradores.get(opcao-1).getNome() + ", o que voce deseja comprar?\n");
+        System.out.println(" Bem " + compradores.get(opcao-1).getNome() + ", o que voce deseja comprar?");
+
+        this.comprar(compradores.get(opcao-1));
     }
 
 }

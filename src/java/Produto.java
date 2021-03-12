@@ -1,7 +1,15 @@
 public class Produto {
-    String codigo = "";
+    String codigo;
     String nome = "";
-    float preco = 0;
+    double preco = 0;
+
+
+    // Método construtor da classe Produto
+    public Produto(String nome, String codigo, double preco) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.preco = preco;
+    }
 
     // Métodos de get e set do atributo codigo
     public void setCodigo(String codigo) {
@@ -20,10 +28,10 @@ public class Produto {
     }
 
     // Métodos de get e set do atributo preco
-    public void setPreco(float preco) {
+    public void setPreco(double preco) {
         this.preco = preco;
     }
-    public float getPreco() {
+    public double getPreco() {
         return this.preco;
     }
 }
