@@ -3,7 +3,7 @@ class Main {
     public static void main(String[] args) {
 
         // Objetos para exemplificação ///////////////////////////////
-        Mercado m1 = new Mercado();
+        Mercado m1 = new Mercado(5.5, 3.5);
 
         Comprador c1 = new Comprador("Clesio", "213453463224", 500);
         Comprador c2 = new Comprador("Mario", "213453234434", 500);

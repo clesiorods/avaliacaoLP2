@@ -18,15 +18,15 @@ O prazo para entrega é 22/03/2021 às 23:59.
     - Implementar um sistema de cadastro de compradores e vendedores onde é possível registrar um catálogo de produtos bem como compras realizadas. As compras podem ser realizadas por diferentes formas de pagamento.
 
 # Conceitos do sistema
-    - Forma de Pagamento
+    @ Forma de Pagamento
 
     - PIX Instantaneamente debita o valor da conta do comprador e deposita na conta do vendedor.
 
-    Boleto Verifica se a data de vencimento do boleto não foi excedida. Instantaneamente debita o valor da conta do comprador e adiciona nos valores a receber do vendedor, descontado do valor para emissão do boleto.
+    - Boleto Verifica se a data de vencimento do boleto não foi excedida. Instantaneamente debita o valor da conta do comprador e adiciona nos valores a receber do vendedor, descontado do valor para emissão do boleto.
 
-    Débito Instantaneamente debita o valor da conta do comprador e deposita na conta do vendedor, descontado da taxa percentual de cobrança da operadora do cartão.
+    - Débito Instantaneamente debita o valor da conta do comprador e deposita na conta do vendedor, descontado da taxa percentual de cobrança da operadora do cartão.
 
-    Credito Coloca o valor na lista de valores a pagar do comprador e adiciona nos valores a receber do vendedor, descontado da taxa percentual de cobrança da operadora do cartão.
+    - Credito Coloca o valor na lista de valores a pagar do comprador e adiciona nos valores a receber do vendedor, descontado da taxa percentual de cobrança da operadora do cartão.
 
 # Compra/Venda
     - CPF Comprador

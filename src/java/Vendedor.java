@@ -10,7 +10,7 @@ public class Vendedor extends Pessoa{
     
 
     // Método construtor da classe Vendedor
-    public Vendedor(String nome, String cnpj, String tipo, float saldo){
+    public Vendedor(String nome, String cnpj, String tipo, double saldo){
         this.nome = nome;
         this.cnpj = cnpj;
         this.saldo = saldo;
@@ -26,9 +26,9 @@ public class Vendedor extends Pessoa{
 
     // Método de listagem de produtos
     public void listaProdutos() {
-        System.out.println("\n Ofertas de " + getTipo());
+        System.out.println("\n  Ofertas de " + getTipo());
         for (Produto produto : produtos) {
-            System.out.println(" > " + produto.getNome() + "\tCod.: " + produto.getCodigo());
+            System.out.println("   > " + produto.getNome() + "\tCod.: " + produto.getCodigo());
         }
     }
 

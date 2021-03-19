@@ -3,7 +3,7 @@ public class Comprador extends Pessoa{
     int compras = 0;
 
     // Método construtor
-    public Comprador(String nome, String cpf, float saldo) {
+    public Comprador(String nome, String cpf, double saldo) {
         this.nome = nome;
         this.cpf = cpf;
         this.saldo = saldo;
@@ -23,5 +23,14 @@ public class Comprador extends Pessoa{
     }
     public int getCompras() {
         return this.compras;
+    }
+
+    // Sobrescrição do método toString
+    public String toString() {
+        return ("\t\t\t\t Nome: " + this.getNome() +
+                "\n\t\t\t\t CPF: " + this.getCpf() +
+                "\n\t\t\t\t Saldo: R$ " + this.getSaldo() + " / Futuro: R$ " + this.getValorFuturo() +
+                "\n  .............................. Compras: " + this.getCompras() + "\n"
+        );
     }
 }

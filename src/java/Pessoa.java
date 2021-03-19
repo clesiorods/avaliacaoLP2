@@ -1,7 +1,7 @@
 public class Pessoa {
-    String nome = "";
-    float saldo = 0;
-    float valorFuturo = 0;
+    String nome = "Sem Nome";
+    double saldo = 0;
+    double valorFuturo = 0;
 
 
     // Métodos de get e set do atributo nome
@@ -13,18 +13,18 @@ public class Pessoa {
     }
 
     // Métodos de get e set do atributo saldo
-    public void setSaldo(float saldo) {
+    public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
-    public float getSaldo() {
+    public double getSaldo() {
         return this.saldo;
     }
 
     // Metodos de get e set do atributo valorFuturo
-    public void setValorFuturo(float valorFuturo) {
+    public void setValorFuturo(double valorFuturo) {
         this.valorFuturo = valorFuturo;
     }
-    public float getValorFuturo() {
+    public double getValorFuturo() {
         return this.valorFuturo;
     }
 }
