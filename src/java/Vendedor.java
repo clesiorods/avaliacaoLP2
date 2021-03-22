@@ -28,7 +28,7 @@ public class Vendedor extends Pessoa{
     public void listaProdutos() {
         System.out.println("\n  Ofertas de " + getTipo());
         for (Produto produto : produtos) {
-            System.out.println("   > " + produto.getNome() + "\tCod.: " + produto.getCodigo());
+            System.out.println("    > " + produto.getNome() + "\t R$ " + produto.getPreco() + "\n    ............. Cod.: " + produto.getCodigo());
         }
     }
 

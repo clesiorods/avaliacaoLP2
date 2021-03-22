@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
 
 public class Mercado {
 
@@ -36,15 +35,18 @@ public class Mercado {
             System.out.println(" - " + comprador.getNome() + "\t (" + pos + ")");
             pos++;
         }
+        System.out.println("\n - Novo Comprador (n):");
     }
 
     // Método de listagem de vendedores 
     public void listaVendedor() {
+        System.out.println("  Estes sao os vendedores disponiveis no mercado. Informe o CNPJ\n  para ver detalhes, ou a opcao \"n\" para adicionar um novo vendedor. ");
         int pos = 1;
         for (Vendedor vendedor : vendedores) {
-            System.out.println(" - " + vendedor.getNome() + "\t (" + pos + ")");
+            System.out.println("\n - " + vendedor.getNome() + "\n\tCNPJ: " + vendedor.getCnpj());
             pos++;
         }
+        System.out.println("\n - Novo vendedor (n):");
     }
 
     // Método de listagem em de produtos
@@ -71,11 +73,11 @@ public class Mercado {
 
             switch(escolha) {
                 case "c":
-                System.out.println("Voce escollheu comprador!");
-                this.opcoesComprador();
+                    this.opcoesComprador();
                     break;
                 case "v": 
-                    System.out.println("Voce escolheu vendedor!");
+                    this.cabecalho();
+                    this.listaVendedor();
                     break;
                 default:
                     System.out.println(" Alternativa invalida. Informe se voce vai comprar uo vender");
@@ -118,6 +120,7 @@ public class Mercado {
                 }
             }
         }
+        this.cabecalho();
         System.out.println("\n - Codigo invalido. Tente novamente!");
         this.comprar(c);
     }
@@ -128,21 +131,30 @@ public class Mercado {
         System.out.println(c.toString());
 
         switch(form) {
+            //PIX
             case 1:
                 // Operações do comprador
-                c.setCompras( c.getCompras() + 1 );
-                c.setSaldo( c.getSaldo() - valor );
+                if(c.getSaldo() > valor) 
+                {
+                    c.setCompras( c.getCompras() + 1 );
+                    c.setSaldo( c.getSaldo() - valor );
 
-                // Operações do vendedor
-                v.setSaldo( v.getSaldo() + valor );
-                v.setVendas(v.getVendas() + 1);
+                    // Operações do vendedor
+                    v.setSaldo( v.getSaldo() + valor );
+                    v.setVendas(v.getVendas() + 1);
 
-                this.comprar(c);
-                break;
+                    this.comprar(c);
+                    break;
 
+                } else {
+                    System.out.println("\n - Saldo insuficiente!");
+                    try { Thread.sleep (3000); } catch (InterruptedException ex) {}
+                    this.cabecalho();
+                    this.comprar(c);
+                }
 
+            //CRÉDITO
             case 2:
-                // COMPRA POR CARTÃO DE CRÉDITO
                 // Operações do comprador
                 c.setCompras( c.getCompras() + 1 );
                 c.setValorFuturo( c.getValorFuturo() - (valor + ((valor/100)*tarifaCredito)) );
@@ -154,8 +166,9 @@ public class Mercado {
                 this.comprar(c);
                 break;
 
-            
+            // DÉBITO
             case 3:
+                if(c.getSaldo() > valor) {
                 // Operações do comprador
                 c.setCompras( c.getCompras() + 1 );
                 c.setSaldo( c.getSaldo() - (valor + ((valor/100)*tarifaDebito)) );
@@ -167,9 +180,16 @@ public class Mercado {
                 this.comprar(c);
                 break;
 
+                } else {
+                    System.out.println("\n - Saldo insuficiente!");
+                    try { Thread.sleep (3000); } catch (InterruptedException ex) {}
+                    this.cabecalho();
+                    this.comprar(c);
+                }
 
+
+            // COMPRA POR BOLETO
             case 4: 
-                // COMPRA POR BOLETO
                 Scanner teclado = new Scanner(System.in);
                 
                 // Operações do comprador
@@ -217,9 +237,10 @@ public class Mercado {
         cabecalho();
         System.out.println(compradores.get(opcao-1).toString());
 
-        System.out.println("  Bem, " + compradores.get(opcao-1).getNome() + ". O que voce deseja comprar?");
+        System.out.println("\n  Bem, " + compradores.get(opcao-1).getNome() + ". O que voce deseja comprar?");
         this.comprar(compradores.get(opcao-1));
     }
+
 
     public boolean noPrazo(int dia, int mes, int ano) {
 
